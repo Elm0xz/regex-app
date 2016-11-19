@@ -24,7 +24,6 @@ public class Main extends Application {
 }
 
 /*** TODO
- * - implement browse action - getting text of file into string textArea OR/AND passing it into controller
  * - Give regex check results in popup window
  * - Create some array of results (???)
  */

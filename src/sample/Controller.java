@@ -8,11 +8,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class Controller {
 //    private int counter = 0;
 
     @FXML
-    private Text actionTarget;
+    private Text checkActionTarget;
     @FXML
     private TextField regexField;
     @FXML
@@ -30,14 +34,29 @@ public class Controller {
 
         RegexChecker checker = new RegexChecker();
         String checkResult = checker.check(regexField.getText(), stringField.getText());
-        actionTarget.setText(checkResult);
+        checkActionTarget.setText(checkResult);
 
     }
 
     public void handleBrowseAction(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose Text File");
-        fileChooser.showOpenDialog(gridPane.getScene().getWindow());
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+
+        File chosenFile = fileChooser.showOpenDialog(gridPane.getScene().getWindow());
+
+        try {
+            //FileReader reader = new FileReader(chosenFile);
+            String text = new String(Files.readAllBytes(Paths.get(chosenFile.getPath()))); //ugly
+            stringField.setText(text);
+            //System.out.print(text);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }
