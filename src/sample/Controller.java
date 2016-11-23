@@ -9,8 +9,6 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 public class Controller {
 //    private int counter = 0;
@@ -26,37 +24,40 @@ public class Controller {
 
     @FXML
     private void handleRegexCheckAction(ActionEvent actionEvent) {
-//        counter++;
-//        if (counter%2==1)
-//            actionTarget.setText("Check processed!");
-//        else
-//            actionTarget.setText("Check processed again!");
-
         RegexChecker checker = new RegexChecker();
         String checkResult = checker.check(regexField.getText(), stringField.getText());
         checkActionTarget.setText(checkResult);
 
     }
 
-    public void handleBrowseAction(ActionEvent actionEvent) {
+    @FXML
+    private void handleBrowseAction(ActionEvent actionEvent) {
+        readFile(chooseFile());
+    }
+
+    private File chooseFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose Text File");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
         fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
 
-        File chosenFile = fileChooser.showOpenDialog(gridPane.getScene().getWindow());
+        return fileChooser.showOpenDialog(gridPane.getScene().getWindow());
+    }
 
+    private void readFile(File chosenFile) {
         try {
-            //FileReader reader = new FileReader(chosenFile);
-            String text = new String(Files.readAllBytes(Paths.get(chosenFile.getPath()))); //ugly
-            stringField.setText(text);
-            //System.out.print(text);
+            StringBuilder builder = new StringBuilder();
+            BufferedReader reader = new BufferedReader(new FileReader(chosenFile));
+            String line = reader.readLine();
+            while (line != null) {
+                builder.append(line);
+                line = reader.readLine();
+            }
+            stringField.setText(builder.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }
