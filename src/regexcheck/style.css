@@ -1,0 +1,31 @@
+.mainpane {
+    -fx-font-family: Cambria serif;
+    -fx-padding: 20 20 10 20;
+}
+.box {
+    -fx-border-width: 1;
+    -fx-border-color: lightgray;
+    -fx-border-style: dashed;
+    -fx-alignment: center;
+}
+.title {
+    -fx-padding: 5;
+}
+.title-text {
+    -fx-font-size: 15;
+}
+.showpane {
+    -fx-padding: 7;
+    -fx-border-insets: 5 0 5 0;
+    -fx-background-insets: 5 0 5 0;
+}
+.showpane-text {
+    -fx-alignment: baseline-left; /*doesn't work*/
+}
+.butpane {
+    -fx-padding: 5;
+    -fx-alignment: baseline-left;
+    -fx-spacing: 3;
+}
+.butpane-button {
+}

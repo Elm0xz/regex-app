@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 <GridPane xmlns:fx="http://javafx.com/fxml"
-          fx:controller="sample.Controller" fx:id="gridPane" alignment="center" hgap="10" vgap="10">
+          fx:controller="regexcheck.Controller" fx:id="gridPane" alignment="center" hgap="10" vgap="10">
     <padding>
         <Insets top="25" right="25" bottom="10" left="25"/>
     </padding>
@@ -17,11 +17,11 @@
     <Label text="Type string here:"
            GridPane.columnIndex="0" GridPane.rowIndex="2"/>
     <TextArea fx:id="stringField"
-               GridPane.columnIndex="1" GridPane.rowIndex="2" prefHeight="100" prefWidth = "200" wrapText="true"/>
+               GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth = "200" prefHeight="400" wrapText="true"/>
     <Button text="Browse..." onAction="#handleBrowseAction"
             GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="2" GridPane.halignment="LEFT"/>
     <Button text="Check!" onAction="#handleRegexCheckAction"
             GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.columnSpan="2" GridPane.halignment="RIGHT"/>
-    <Text fx:id="checkActionTarget"
-          GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2" GridPane.halignment="RIGHT"/>
+    <!--<Label fx:id="resultField"
+          GridPane.columnIndex="1" GridPane.rowIndex="4" prefWidth = "200" prefHeight="300"></Label>-->
 </GridPane>

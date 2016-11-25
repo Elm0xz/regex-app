@@ -1,33 +1,32 @@
-package sample;
+package regexcheck;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 
 import java.io.*;
 
 public class Controller {
-//    private int counter = 0;
 
     @FXML
-    private Text checkActionTarget;
+    private BorderPane mainPane;
     @FXML
     private TextField regexField;
     @FXML
     private TextArea stringField;
     @FXML
-    private GridPane gridPane;
+    private Label resultField;
 
     @FXML
     private void handleRegexCheckAction(ActionEvent actionEvent) {
         RegexChecker checker = new RegexChecker();
         String checkResult = checker.check(regexField.getText(), stringField.getText());
-        checkActionTarget.setText(checkResult);
-
+        resultField.setText(checkResult);
     }
 
     @FXML
@@ -41,7 +40,7 @@ public class Controller {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
         fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
 
-        return fileChooser.showOpenDialog(gridPane.getScene().getWindow());
+        return fileChooser.showOpenDialog(mainPane.getScene().getWindow());
     }
 
     private void readFile(File chosenFile) {
@@ -54,8 +53,6 @@ public class Controller {
                 line = reader.readLine();
             }
             stringField.setText(builder.toString());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
