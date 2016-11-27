@@ -30,7 +30,6 @@ public class Main extends Application {
  *      add menu upper bar
  *      restyle - buttons to lower position in window
  *      make window unresizeable or sth
- *      css
  *   - add regex check window
  *      give info: number of expressions found
  *      list found expressions and their position

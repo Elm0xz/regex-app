@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<BorderPane fx:id="mainPane" prefHeight="500.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="regexcheck.Controller" styleClass = "mainpane">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="mainPane" prefHeight="500.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60"
+            fx:controller="regexcheck.Controller" styleClass="mainpane">
     <top>
         <HBox styleClass="box, title" prefWidth="540">
-            <Text text="Regex Check" styleClass="title-text">
-                </Text>
+            <Text text="Regex Check" styleClass="title-text"/>
         </HBox>
     </top>
     <left>
         <VBox prefHeight="400.0" prefWidth="270.0" styleClass="box, showpane">
-            <children>
-                <Label text="Type string here:" styleClass="showpane-text"/>
-                <TextField fx:id="regexField" />
-                <Label text="Type regex here:"  styleClass="showpane-text"/>
-                <TextArea fx:id="stringField" prefHeight="400" prefWidth="200" wrapText="true" />
-            </children>
+            <Label text="Type string here:" styleClass="showpane-text"/>
+            <TextField fx:id="regexField"/>
+            <Label text="Type regex here:" styleClass="showpane-text"/>
+            <TextArea fx:id="stringField" prefHeight="400" prefWidth="200" wrapText="true"/>
         </VBox>
     </left>
     <right>
-        <VBox prefHeight="400.0" prefWidth="270.0" styleClass="box, showpane" />
+        <VBox prefHeight="400.0" prefWidth="270.0" styleClass="box, showpane">
+            <Label fx:id="resultField" styleClass="showpane-text"/>
+        </VBox>
     </right>
     <bottom>
         <HBox styleClass="box, butpane" prefWidth="540">
-            <Button onAction="#handleBrowseAction" text="Browse..." styleClass ="butpane-button"/>
-            <Button onAction="#handleRegexCheckAction" text="Check!" styleClass ="butpane-button"/>
+            <Button onAction="#handleBrowseAction" text="Browse..." styleClass="butpane-button"/>
+            <Button onAction="#handleRegexCheckAction" text="Check!" styleClass="butpane-button"/>
         </HBox>
     </bottom>
 </BorderPane>

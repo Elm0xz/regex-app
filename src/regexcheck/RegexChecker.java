@@ -12,7 +12,7 @@ public class RegexChecker {
         Matcher regexMatcher = regexPattern.matcher(stringText);
 
         if (regexMatcher.find())
-            return ("Regex found!");
+            return ("Regex found! " + regexMatcher.group());
         else
             return ("Regex not found!");
 
