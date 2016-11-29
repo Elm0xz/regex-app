@@ -30,9 +30,8 @@ public class Main extends Application {
  * - main Window layoyt:
  *      add menu upper bar
  *   - add regex check window
- *      give info: number of expressions found
- *      list found expressions and their position
  *      text of string with highlighted regex
+ *      resizeable window presenting results
  *   - refactor code to be more SOLID
- *   -exception handling: empty regex/string
+ *   - exception handling: empty regex/string
  */
