@@ -3,6 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
+
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="mainPane" prefHeight="500.0"
             prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60"
             fx:controller="regexcheck.Controller" styleClass="mainpane">
@@ -12,16 +13,17 @@
         </HBox>
     </top>
     <left>
-        <VBox prefHeight="400.0" prefWidth="270.0" styleClass="box, showpane">
+        <VBox prefHeight="400.0" prefWidth="280.0" styleClass="box, showpane">
             <Label text="Type string here:" styleClass="showpane-text"/>
             <TextField fx:id="regexField"/>
             <Label text="Type regex here:" styleClass="showpane-text"/>
             <TextArea fx:id="stringField" prefHeight="400" prefWidth="200" wrapText="true"/>
         </VBox>
     </left>
+    <!--<center><VBox maxWidth="0"/></center>-->
     <right>
-        <VBox prefHeight="400.0" prefWidth="270.0" styleClass="box, showpane">
-            <Label fx:id="resultField" styleClass="showpane-text"/>
+        <VBox prefHeight="400.0" prefWidth="280.0" styleClass="box, showpane">
+            <Label fx:id="resultField" styleClass="showpane-text" wrapText="true"/>
         </VBox>
     </right>
     <bottom>

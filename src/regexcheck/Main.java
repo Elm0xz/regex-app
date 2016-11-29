@@ -13,6 +13,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("regexview.fxml"));
 
         primaryStage.setTitle("Regex Check");
+        primaryStage.setResizable(false);
         Scene mainScene = new Scene(root, 600, 500);
         mainScene.getStylesheets().add("/regexcheck/style.css");
         primaryStage.setScene(mainScene);
@@ -28,11 +29,10 @@ public class Main extends Application {
 /*** TODO
  * - main Window layoyt:
  *      add menu upper bar
- *      restyle - buttons to lower position in window
- *      make window unresizeable or sth
  *   - add regex check window
  *      give info: number of expressions found
  *      list found expressions and their position
  *      text of string with highlighted regex
  *   - refactor code to be more SOLID
+ *   -exception handling: empty regex/string
  */
