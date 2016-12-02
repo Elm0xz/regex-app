@@ -6,26 +6,30 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 
 import java.io.*;
 
 public class Controller {
 
+    private ExpChecker expChecker = null;
+
     @FXML
     private BorderPane mainPane;
     @FXML
-    private TextField regexField;
+    private TextField expField;
     @FXML
-    private TextArea stringField;
+    private TextArea checkedField;
     @FXML
     private Label resultField;
 
+    public void initChecker(ExpChecker expChecker) {
+        this.expChecker = expChecker;
+    }
+
     @FXML
     private void handleRegexCheckAction(ActionEvent actionEvent) {
-        RegexChecker checker = new RegexChecker();
-        String checkResult = checker.check(regexField.getText(), stringField.getText());
+        String checkResult = expChecker.check(expField.getText(), checkedField.getText());
         resultField.setText(checkResult);
     }
 
@@ -52,9 +56,11 @@ public class Controller {
                 builder.append(line);
                 line = reader.readLine();
             }
-            stringField.setText(builder.toString());
+            checkedField.setText(builder.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 }
