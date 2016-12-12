@@ -1,5 +1,6 @@
 package regexcheck;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
@@ -8,7 +9,10 @@ import java.util.regex.Pattern;
 /**
  * Created by user on 2016-11-15.
  */
-public class RegexChecker {
+public class RegexChecker extends ExpChecker {
+
+    public RegexChecker() {}
+
     public String check(String regexText, String stringText) {
         Pattern regexPattern = Pattern.compile(regexText);
         Matcher regexMatcher = regexPattern.matcher(stringText);
@@ -36,6 +40,7 @@ public class RegexChecker {
         else
             return ("Regex not found!");*/
         //return matchedArray.toString();
+
         return resultBuilder.toString();
 
     }

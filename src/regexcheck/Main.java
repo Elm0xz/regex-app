@@ -10,7 +10,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("regexview.fxml"));
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("regexview.fxml"));
+        Parent root = loader.load();
+        Controller controller = loader.getController();
+        controller.initChecker(new RegexChecker());
 
         primaryStage.setTitle("Regex Check");
         primaryStage.setResizable(false);

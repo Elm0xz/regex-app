@@ -15,9 +15,9 @@
     <left>
         <VBox prefHeight="400.0" prefWidth="280.0" styleClass="box, showpane">
             <Label text="Type string here:" styleClass="showpane-text"/>
-            <TextField fx:id="regexField"/>
+            <TextField fx:id="expField"/>
             <Label text="Type regex here:" styleClass="showpane-text"/>
-            <TextArea fx:id="stringField" prefHeight="400" prefWidth="200" wrapText="true"/>
+            <TextArea fx:id="checkedField" prefHeight="400" prefWidth="200" wrapText="true"/>
         </VBox>
     </left>
     <!--<center><VBox maxWidth="0"/></center>-->
