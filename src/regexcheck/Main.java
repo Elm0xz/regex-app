@@ -5,6 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+import regexcheckTests.RegexCheckerTest;
 
 public class Main extends Application {
 
@@ -26,7 +30,15 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        Result result = JUnitCore.runClasses(RegexCheckerTest.class);
+
+        for (Failure failure : result.getFailures()) {
+            System.out.println(failure.toString());
+        }
+
+        System.out.println(result.wasSuccessful());
         launch(args);
+
     }
 }
 

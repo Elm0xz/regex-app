@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 /**
  * Created by user on 2016-11-15.
  */
-public class RegexChecker extends ExpChecker {
+public class RegexChecker implements ExpChecker {
 
     public RegexChecker() {}
 
